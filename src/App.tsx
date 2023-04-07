@@ -193,7 +193,7 @@ function App() {
                     <label>Weight Unit:</label>
                     <Select
                         className='unit-selection-list'
-                        placeholder={timeOptions[4].label}
+                        placeholder={weightOptions[4].label}
                         defaultValue={timeOptions[4]}
                         value={selectedWeight}
                         options={weightOptions}
