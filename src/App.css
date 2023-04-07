@@ -126,7 +126,7 @@ body {
   outline-width: 5px;
   outline-style: double;
   outline-offset: 1px;
-  outline-color: pink; 
+  outline-color: #ffc0cb; 
   color: #000000;
 }
 
@@ -142,7 +142,7 @@ body {
   outline-width: 3px;
   outline-style: solid;
   outline-offset: -7px;
-  outline-color: pink; 
+  outline-color: #ffc0cb; 
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 3);
   background-color: #f7f7f8;
   color: #000000;
@@ -151,7 +151,7 @@ body {
 .input-output-container label {
   font-size: 30px;
   margin-bottom: 0.3em;
-  color: black;
+  color: #000000;
 }
 
 .input-output-container textarea {
@@ -164,7 +164,7 @@ body {
   outline-width: 5px;
   outline-style: double;
   outline-offset: 6px;
-  outline-color: pink; 
+  outline-color: #ffc0cb; 
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 3);
   margin-top: 2%;
   color: #000000;
@@ -179,6 +179,6 @@ body {
   padding: 25px;
   margin: 10px 10px;
   color: black;
-  background-color: aquamarine;
+  background-color: #7fffd4;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 3);
 }
