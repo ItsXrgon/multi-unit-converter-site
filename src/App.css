@@ -87,7 +87,8 @@ body {
   outline-width: 3px;
   outline-style: solid;
   outline-offset: -7px;
-  outline-color: pink; 
+  outline-color: pink;
+  background-color: #f7f7f8;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 3);
 }
 
@@ -136,6 +137,7 @@ body {
   outline-style: solid;
   outline-offset: -7px;
   outline-color: pink; 
+  background-color: #f7f7f8;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 3);
 }
 
