@@ -140,13 +140,13 @@ function App() {
                 Multi Unit Converter
             </div>
             <div className="navbar-buttons">
-                <a href={"https://github.com/itsxrgon/multi-unit-converter/#readme"} target="_blank" rel="noopener noreferrer" title='Github repository'>
+                <a href={"https://github.com/itsxrgon/multi-unit-converter/#readme"} target="_blank" rel="noopener noreferrer" title='Github epository'>
                     <FaGithub />
                 </a>
                 <a href={"https://www.npmjs.com/package/multi-unit-converter"} target="_blank" rel="noopener noreferrer" title='NPM module page'>
                     <FaNpm />
                 </a>
-                <a href={""} target="_blank" rel="noopener noreferrer" title='Donate'>
+                <a href={""} target="_blank" rel="noopener noreferrer" title='donate'>
                     <FaDonate />
                 </a>
                 <a href={"https://github.com/ItsXrgon/multi-unit-converter/issues"} target="_blank" rel="noopener noreferrer" title='Report a bug'>
@@ -193,7 +193,7 @@ function App() {
                     <label>Weight Unit:</label>
                     <Select
                         className='unit-selection-list'
-                        placeholder={timeOptions[4].label}
+                        placeholder={weightOptions[4].label}
                         defaultValue={timeOptions[4]}
                         value={selectedWeight}
                         options={weightOptions}
