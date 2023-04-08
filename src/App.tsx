@@ -116,14 +116,23 @@ function App() {
         {value: 'mm3', label: 'Cubic Millimeters'},
         {value: 'cm3', label: 'Cubic Centimeters'},
         {value: 'm3', label: 'Cubic Meters'},
+        {value: 'km3', label: 'Cubic Kilometers'},
         {value: 'in3', label: 'Cubic Inches'},
         {value: 'ft3', label: 'Cubic Feet'},
         {value: 'yd3', label: 'Cubic Yards'}
     ] 
 
     const areaUnits: Option[] = [
-        {value: 'tsp', label: 'Teaspoons'},
-        {value: 'tbsp', label: 'Tablespoons'}
+        {value: 'mm2', label: 'Square Millimeters'},
+        {value: 'cm2', label: 'Square Centimeters'},
+        {value: 'm2', label: 'Square Meters'},
+        {value: 'km2', label: 'Square Kilometers'},
+        {value: 'in2', label: 'Square Inches'},
+        {value: 'ft2', label: 'Square Feet'},
+        {value: 'yd2', label: 'Square Yards'},
+        {value: 'ac2', label: 'Square Acres'},
+        {value: 'ha2', label: 'Square Hectares'},
+
     ] 
 
     useEffect(() => {
@@ -135,232 +144,304 @@ function App() {
 
   return (
     <>
-        <nav>
-            <div className="navbar-title">
-                Multi Unit Converter
-            </div>
-            <div className="navbar-buttons">
-                <a href={"https://github.com/itsxrgon/multi-unit-converter/#readme"} target="_blank" rel="noopener noreferrer" title='Github epository'>
-                    <FaGithub />
-                </a>
-                <a href={"https://www.npmjs.com/package/multi-unit-converter"} target="_blank" rel="noopener noreferrer" title='NPM module page'>
-                    <FaNpm />
-                </a>
-                <a href={""} target="_blank" rel="noopener noreferrer" title='donate'>
-                    <FaDonate />
-                </a>
-                <a href={"https://github.com/ItsXrgon/multi-unit-converter/issues"} target="_blank" rel="noopener noreferrer" title='Report a bug'>
-                    <FaBug />
-                </a>
-            </div>
-        </nav>
-        <main className='unit-converter'>
-            <div className='units-selector-container'>
-                <h1 className='units-selector-title'>
-                    -: Select your preferred units :-
-                </h1>
-                <div className="units-selector">
-                    <label >Time Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={timeOptions[1].label}
-                        defaultValue={timeOptions[1]}
-                        value={selectedTime}
-                        options={timeOptions}
-                        onChange={(option: Option | null) => {setSelectedTime(option); 
-                            if(option != null){
-                                muc.setUnitTime(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    <label>Length Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={lengthOptions[2].label}
-                        defaultValue={lengthOptions[2]}
-                        value={selectedLength}
-                        options={lengthOptions}
-                        onChange={(option: Option | null) => {setSelectedLength(option); 
-                            if(option != null){
-                                console.log(option.value)
-                                muc.setUnitLength(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    
-                    <label>Weight Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={weightOptions[4].label}
-                        defaultValue={timeOptions[4]}
-                        value={selectedWeight}
-                        options={weightOptions}
-                        onChange={(option: Option | null) => {setSelectedWeight(option); 
-                            if(option != null){
-                                muc.setUnitWeight(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    <label>Liquid Volume Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={liquidVolumeOptions[2].label}
-                        defaultValue={liquidVolumeOptions[2]}
-                        value={selectedLiquid}
-                        options={liquidVolumeOptions}
-                        onChange={(option: Option | null) => {setSelectedLiquid(option); 
-                            if(option != null){
-                                console.log(option.value)
-                                muc.setUnitLiquidVolume(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
+            <nav>
+                <div className="navbar-title">Multi Unit Converter</div>
+                <div className="navbar-buttons">
+                    <a
+                        href={
+                            "https://github.com/itsxrgon/multi-unit-converter/#readme"
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Github epository">
+                        <FaGithub />
+                    </a>
+                    <a
+                        href={
+                            "https://www.npmjs.com/package/multi-unit-converter"
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="NPM module page">
+                        <FaNpm />
+                    </a>
+                    <a
+                        href={""}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="donate">
+                        <FaDonate />
+                    </a>
+                    <a
+                        href={
+                            "https://github.com/ItsXrgon/multi-unit-converter/issues"
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Report a bug">
+                        <FaBug />
+                    </a>
                 </div>
-                <div className="units-selector">
-                    <label>Temperature Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={temperatureOptions[0].label}
-                        defaultValue={temperatureOptions[0]}
-                        value={selectedTemperature}
-                        options={temperatureOptions}
-                        onChange={(option: Option | null) => {setSelectedTemperature(option); 
-                            if(option != null){
-                                muc.setUnitTemperature(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    <label>Electric Current Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={electricCurrentOptions[1].label}
-                        defaultValue={electricCurrentOptions[1]}
-                        value={selectedElectric}
-                        options={electricCurrentOptions}
-                        onChange={(option: Option | null) => {setSelectedElectric(option); 
-                            if(option != null){
-                                muc.setUnitElectricCurrent(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    <label>Spoon Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={spoonOptions[0].label}
-                        defaultValue={spoonOptions[0]}
-                        value={selectedSpoons}
-                        options={spoonOptions}
-                        onChange={(option: Option | null) => {setSelectedSpoons(option); 
-                            if(option != null){
-                                muc.setUnitSpoon(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    <label>Pressure Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={pressureUnits[0].label}
-                        defaultValue={pressureUnits[0]}
-                        value={selectedPressure}
-                        options={pressureUnits}
-                        onChange={(option: Option | null) => {setSelectedPressure(option); 
-                            if(option != null){
-                                muc.setUnitPressure(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                </div>
-                <div className="units-selector">
-                    <label>Energy Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={energyUnits[0].label}
-                        defaultValue={energyUnits[0]}
-                        value={selectedEnergy}
-                        options={energyUnits}
-                        onChange={(option: Option | null) => {setSelectedEnergy(option); 
-                            if(option != null){
-                                muc.setUnitEnergy(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    <label>Frequency Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={frequencyUnits[0].label}
-                        defaultValue={frequencyUnits[0]}
-                        value={selectedFrequency}
-                        options={frequencyUnits}
-                        onChange={(option: Option | null) => {setSelectedFrequency(option); 
-                            if(option != null){
-                                muc.setUnitFrequency(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    <label>Volume Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={volumeUnits[2].label}
-                        defaultValue={volumeUnits[2]}
-                        value={selectedVolume}
-                        options={volumeUnits}
-                        onChange={(option: Option | null) => {setSelectedVolume(option); 
-                            if(option != null){
-                                muc.setUnitVolume(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                    <label>Area Unit:</label>
-                    <Select
-                        className='unit-selection-list'
-                        placeholder={energyUnits[0].label}
-                        defaultValue={energyUnits[0]}
-                        value={selectedEnergy}
-                        options={energyUnits}
-                        onChange={(option: Option | null) => {setSelectedEnergy(option); 
-                            if(option != null){
-                                muc.setUnitEnergy(option.value)
-                            }
-                        }}
-                        isSearchable={true}
-                    />
-                </div>
-            </div>
-            <div className='input-output-container'>
-                <div className='input-container'>
-                    <label>
-                        Input text of measurements
-                    </label>
-                    <div>
-                        <textarea rows={30} cols={90} placeholder='Input text' onChange={(e) => setInputText(e.currentTarget.value)}/>
+            </nav>
+            <main className="unit-converter">
+                <div className="units-selector-container">
+                    <h1 className="units-selector-title">Select Units</h1>
+
+                    <div className="unit">
+                        <label>Time</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={timeOptions[0].label}
+                            defaultValue={timeOptions[0]}
+                            value={selectedTime}
+                            options={timeOptions}
+                            onChange={(option: Option | null) => {
+                                setSelectedTime(option);
+                                if (option != null) {
+                                    muc.setUnitTime(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Length</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={lengthOptions[0].label}
+                            defaultValue={lengthOptions[0]}
+                            value={selectedLength}
+                            options={lengthOptions}
+                            onChange={(option: Option | null) => {
+                                setSelectedLength(option);
+                                if (option != null) {
+                                    console.log(option.value);
+                                    muc.setUnitLength(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Weight</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={weightOptions[0].label}
+                            defaultValue={weightOptions[0]}
+                            value={selectedWeight}
+                            options={weightOptions}
+                            onChange={(option: Option | null) => {
+                                setSelectedWeight(option);
+                                if (option != null) {
+                                    muc.setUnitWeight(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Liquid Volume</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={liquidVolumeOptions[0].label}
+                            defaultValue={liquidVolumeOptions[0]}
+                            value={selectedLiquid}
+                            options={liquidVolumeOptions}
+                            onChange={(option: Option | null) => {
+                                setSelectedLiquid(option);
+                                if (option != null) {
+                                    console.log(option.value);
+                                    muc.setUnitLiquidVolume(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Temperature</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={temperatureOptions[0].label}
+                            defaultValue={temperatureOptions[0]}
+                            value={selectedTemperature}
+                            options={temperatureOptions}
+                            onChange={(option: Option | null) => {
+                                setSelectedTemperature(option);
+                                if (option != null) {
+                                    muc.setUnitTemperature(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Electric Current</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={electricCurrentOptions[0].label}
+                            defaultValue={electricCurrentOptions[0]}
+                            value={selectedElectric}
+                            options={electricCurrentOptions}
+                            onChange={(option: Option | null) => {
+                                setSelectedElectric(option);
+                                if (option != null) {
+                                    muc.setUnitElectricCurrent(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Spoon</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={spoonOptions[0].label}
+                            defaultValue={spoonOptions[0]}
+                            value={selectedSpoons}
+                            options={spoonOptions}
+                            onChange={(option: Option | null) => {
+                                setSelectedSpoons(option);
+                                if (option != null) {
+                                    muc.setUnitSpoon(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Pressure</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={pressureUnits[0].label}
+                            defaultValue={pressureUnits[0]}
+                            value={selectedPressure}
+                            options={pressureUnits}
+                            onChange={(option: Option | null) => {
+                                setSelectedPressure(option);
+                                if (option != null) {
+                                    muc.setUnitPressure(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Energy</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={energyUnits[0].label}
+                            defaultValue={energyUnits[0]}
+                            value={selectedEnergy}
+                            options={energyUnits}
+                            onChange={(option: Option | null) => {
+                                setSelectedEnergy(option);
+                                if (option != null) {
+                                    muc.setUnitEnergy(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Frequency</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={frequencyUnits[0].label}
+                            defaultValue={frequencyUnits[0]}
+                            value={selectedFrequency}
+                            options={frequencyUnits}
+                            onChange={(option: Option | null) => {
+                                setSelectedFrequency(option);
+                                if (option != null) {
+                                    muc.setUnitFrequency(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Volume</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={volumeUnits[0].label}
+                            defaultValue={volumeUnits[0]}
+                            value={selectedVolume}
+                            options={volumeUnits}
+                            onChange={(option: Option | null) => {
+                                setSelectedVolume(option);
+                                if (option != null) {
+                                    muc.setUnitVolume(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
+                    </div>
+
+                    <div className="unit">
+                        <label>Area</label>
+                        <Select
+                            className="unit-selection-list"
+                            placeholder={areaUnits[2].label}
+                            defaultValue={areaUnits[2]}
+                            value={selectedArea}
+                            options={areaUnits}
+                            onChange={(option: Option | null) => {
+                                setSelectedEnergy(option);
+                                if (option != null) {
+                                    muc.setUnitArea(option.value);
+                                }
+                            }}
+                            isSearchable={true}
+                        />
                     </div>
                 </div>
-                <div className='output-container'>
-                    <label>
-                        Output text after conversions
-                    </label>
-                    <div>
-                        <textarea id='output' readOnly rows={30} cols={90} placeholder='Output text' value={outputText} />
+                <div className="input-output-container">
+                    <div className="input-container">
+                        <h1>Input Text</h1>
+                        <textarea
+                            rows={18}
+                            cols={90}
+                            placeholder="Input text"
+                            onChange={(e) =>
+                                setInputText(e.currentTarget.value)
+                            }
+                        />
                     </div>
-                    <button className='copy-text' onClick={() => copy(outputText)} >
-                        Copy text
-                    </button>
+                    <div className="output-container">
+                        <h1>Output Text</h1>
+                        <textarea
+                            id="output"
+                            readOnly
+                            rows={18}
+                            cols={90}
+                            placeholder="Output text"
+                            value={outputText}
+                        />
+                        <div className="copy-text-container">
+                            <button
+                                className="copy-text"
+                                onClick={() => copy(outputText)}>
+                                Copy text
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </main>
-    </>
-  )
+                <p id="copyright">
+                    Made by <a href="https://github.com/ItsXrgon">Xrgon</a>.
+                </p>
+            </main>
+        </>
+    );
 }
 
 export default App
