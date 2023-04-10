@@ -9,6 +9,8 @@ const muc = new MultiUnitConverter();
 
 function App() {
 
+    const [precision, setPrecision] = useState(3);
+
     const [selectedTime, setSelectedTime] = useState<Option | null>(null);
     const [selectedLength, setSelectedLength] = useState<Option | null>(null);
     const [selectedWeight, setSelectedWeight] = useState<Option | null>(null);
