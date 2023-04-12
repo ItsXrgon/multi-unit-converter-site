@@ -99,7 +99,7 @@ function MainPage() {
         {value: 'tbsp', label: 'Tablespoons'}
     ] 
 
-    const pressureUnits: Option[] = [
+    const pressureOptions: Option[] = [
         {value: 'Pa', label: 'Pascals'},
         {value: 'kPa', label: 'Kilopascals'},
         {value: 'MPa', label: 'Megapascals'},
@@ -108,21 +108,21 @@ function MainPage() {
         {value: 'bar', label: 'Bar'}
     ] 
 
-    const energyUnits: Option[] = [
+    const energyOptions: Option[] = [
         {value: 'J', label: 'Joules'},
         {value: 'kJ', label: 'kilojoules'},
         {value: 'MJ', label: 'megajoules'},
         {value: 'kWh', label: 'kilowatt'}
     ] 
 
-    const frequencyUnits: Option[] = [
+    const frequencyOptions: Option[] = [
         {value: 'Hz', label: 'Hertz'},
         {value: 'kHz', label: 'Kilohertz'},
         {value: 'MHz', label: 'Megahertz'},
         {value: 'GHz', label: 'Gigahertz'}
     ] 
 
-    const volumeUnits: Option[] = [
+    const volumeOptions: Option[] = [
         {value: 'mm3', label: 'Cubic Millimeters'},
         {value: 'cm3', label: 'Cubic Centimeters'},
         {value: 'm3', label: 'Cubic Meters'},
@@ -132,7 +132,7 @@ function MainPage() {
         {value: 'yd3', label: 'Cubic Yards'}
     ] 
 
-    const areaUnits: Option[] = [
+    const areaOptions: Option[] = [
         {value: 'mm2', label: 'Square Millimeters'},
         {value: 'cm2', label: 'Square Centimeters'},
         {value: 'm2', label: 'Square Meters'},
@@ -151,6 +151,39 @@ function MainPage() {
           clearTimeout(timer)
         }
     }, [inputText, selectedTime, selectedLength, selectedWeight, selectedLiquid, selectedTemperature, selectedElectric, selectedSpoons, selectedPressure, selectedFrequency, selectedVolume])
+
+    useEffect(() => {
+        if(selectedTemplate == null)
+            return;
+
+        switch(selectedTemplate.value.toLowerCase()){
+            case("metric"): 
+                setSelectedLength(lengthOptions[2]);
+                setSelectedWeight(weightOptions[1]);
+                setSelectedLiquid(liquidVolumeOptions[4]);
+                setSelectedArea(areaOptions[2])
+                setSelectedVolume(volumeOptions[2]);
+                break;
+            case("imperial"): 
+                setSelectedLength(lengthOptions[4]);
+                setSelectedWeight(weightOptions[3]);
+                setSelectedLiquid(liquidVolumeOptions[5]);
+                setSelectedArea(areaOptions[5])
+                setSelectedVolume(volumeOptions[5]);
+                break;
+            case("us"): 
+                setSelectedLength(lengthOptions[5]);
+                setSelectedWeight(weightOptions[3]);
+                setSelectedLiquid(liquidVolumeOptions[5]);
+                setSelectedArea(areaOptions[5])
+                break;
+            case("recipe"):
+                setSelectedSpoons(spoonOptions[1])
+                setSelectedWeight(weightOptions[1]);
+                setSelectedLiquid(liquidVolumeOptions[6]);
+                break;
+        }
+    }, [selectedTemplate])
 
 
   return (
@@ -364,10 +397,10 @@ function MainPage() {
                         <label>Pressure</label>
                         <Select
                             className="unit-selection-list"
-                            placeholder={pressureUnits[0].label}
-                            defaultValue={pressureUnits[0]}
+                            placeholder={pressureOptions[0].label}
+                            defaultValue={pressureOptions[0]}
                             value={selectedPressure}
-                            options={pressureUnits}
+                            options={pressureOptions}
                             onChange={(option: Option | null) => {
                                 setSelectedPressure(option);
                                 if (option != null) {
@@ -382,10 +415,10 @@ function MainPage() {
                         <label>Energy</label>
                         <Select
                             className="unit-selection-list"
-                            placeholder={energyUnits[0].label}
-                            defaultValue={energyUnits[0]}
+                            placeholder={energyOptions[0].label}
+                            defaultValue={energyOptions[0]}
                             value={selectedEnergy}
-                            options={energyUnits}
+                            options={energyOptions}
                             onChange={(option: Option | null) => {
                                 setSelectedEnergy(option);
                                 if (option != null) {
@@ -400,10 +433,10 @@ function MainPage() {
                         <label>Frequency</label>
                         <Select
                             className="unit-selection-list"
-                            placeholder={frequencyUnits[0].label}
-                            defaultValue={frequencyUnits[0]}
+                            placeholder={frequencyOptions[0].label}
+                            defaultValue={frequencyOptions[0]}
                             value={selectedFrequency}
-                            options={frequencyUnits}
+                            options={frequencyOptions}
                             onChange={(option: Option | null) => {
                                 setSelectedFrequency(option);
                                 if (option != null) {
@@ -418,10 +451,10 @@ function MainPage() {
                         <label>Volume</label>
                         <Select
                             className="unit-selection-list"
-                            placeholder={volumeUnits[0].label}
-                            defaultValue={volumeUnits[0]}
+                            placeholder={volumeOptions[0].label}
+                            defaultValue={volumeOptions[0]}
                             value={selectedVolume}
-                            options={volumeUnits}
+                            options={volumeOptions}
                             onChange={(option: Option | null) => {
                                 setSelectedVolume(option);
                                 if (option != null) {
@@ -436,10 +469,10 @@ function MainPage() {
                         <label>Area</label>
                         <Select
                             className="unit-selection-list"
-                            placeholder={areaUnits[2].label}
-                            defaultValue={areaUnits[2]}
+                            placeholder={areaOptions[2].label}
+                            defaultValue={areaOptions[2]}
                             value={selectedArea}
-                            options={areaUnits}
+                            options={areaOptions}
                             onChange={(option: Option | null) => {
                                 setSelectedArea(option);
                                 if (option != null) {
@@ -488,5 +521,7 @@ function MainPage() {
         </>
     );
 }
+
+document.documentElement.classList.add('dark')
 
 export default MainPage;

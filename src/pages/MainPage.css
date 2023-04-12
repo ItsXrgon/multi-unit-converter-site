@@ -4,12 +4,102 @@
     --transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+.dark {
+    background: #222;
+    color: white;
+}
+
+.dark .css-13cymwt-control {
+    background: #222;
+    border-color: #f8f859;
+}
+
+.dark .css-13cymwt-control:hover {
+    border-color: #c2c200;
+}
+
+.dark .unit-selection-list {
+    color: white;
+}
+
+.dark .css-t3ipsp-control {
+    background: #222;
+}
+
+.dark .css-t3ipsp-control {
+    border-color: #f8f859;
+    box-shadow: 0 0 0 1px #f8f859;
+}
+
+.dark .css-t3ipsp-control:hover {
+    border-color: #f8f859;
+}
+
+.dark .css-1dimb5e-singleValue {
+    color: white;
+}
+
+.dark .css-tr4s17-option {
+    background: #f8f859;
+    color: #222;
+}
+
+.dark textarea:hover,
+.dark .copy-text:hover,
+.dark #percision-input:hover {
+    border-color: #c2c200;
+}
+
+.dark .css-1nmdiq5-menu {
+    background: #222;
+    border: 1px solid #444;
+}
+
+.dark .css-d7l1ni-option {
+    background: #111;
+}
+
+.dark .css-d7l1ni-option:active {
+    background: #111;
+}
+
+.dark input,
+.dark textarea {
+    color: white;
+    background: #222;
+}
+
+.dark textarea:focus {
+    border-color: #f8f859;
+    box-shadow: 0 0 0 1px #f8f859;
+}
+
+.dark #percision-input:focus {
+    border-color: #f8f859;
+    box-shadow: 0 0 0 1px #f8f859;
+}
+
+.dark #percision-input {
+    border-color: #f8f859;
+}
+
+.dark nav {
+    background: #f8f859;
+    color: #222;
+}
+
+.dark textarea {
+    border-color: #f8f859;
+}
+
+.dark nav a {
+    background: white;
+}
+
 body {
     position: relative;
     margin: 0;
     font-family: "inter", sans-serif;
-    background-color: black;
-    color: #ffff;
 }
 
 .unit-converter {
@@ -50,10 +140,6 @@ textarea {
     font-family: "inter";
     font-size: 16px;
     transition: all var(--transition);
-    outline: solid;
-    outline-offset: 4px;
-    outline-width: 2px;
-    outline-color: yellow;
 }
 
 textarea:hover {
@@ -63,6 +149,7 @@ textarea:hover {
 textarea:focus {
     border-color: #2684ff;
     box-shadow: 0 0 0 1px #2684ff;
+    outline: none;
 }
 
 .unit {
@@ -72,12 +159,6 @@ textarea:focus {
 
 .unit-selection-list {
     margin-top: 2px;
-    outline: solid;
-    outline-offset: 2px;
-    outline-width: 1px;
-    outline-color: yellow;
-    border-radius: 5px;
-    color: black;
 }
 
 h1 {
@@ -132,8 +213,6 @@ nav {
     justify-content: space-between;
     padding: 20px;
     box-sizing: border-box;
-
-    background-color: yellow;
 }
 
 .navbar-title {
@@ -142,7 +221,6 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
 }
 
 .navbar-buttons {
@@ -215,12 +293,6 @@ footer {
     font-family: "inter";
     font-size: 16px;
     transition: all var(--transition);
-
-    outline: solid;
-    outline-offset: 2px;
-    outline-width: 1px;
-    outline-color: yellow;
-    border-radius: 5px;
 }
 
 #percision-input:hover {
