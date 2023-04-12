@@ -9,7 +9,7 @@ const muc = new MultiUnitConverter();
 
 function MainPage() {
 
-    const [precision, setPrecision] = useState(3);
+    const [precision, setPrecision] = useState<string>("3");
     const [selectedTemplate, setSelectedTemplate] = useState<Option | null>(null);
 
     const [selectedTime, setSelectedTime] = useState<Option | null>(null);
@@ -153,6 +153,10 @@ function MainPage() {
     }, [inputText, selectedTime, selectedLength, selectedWeight, selectedLiquid, selectedTemperature, selectedElectric, selectedSpoons, selectedPressure, selectedFrequency, selectedVolume])
 
     useEffect(() => {
+        muc.setPrecision(parseInt(precision));
+    }, [precision])
+
+    useEffect(() => {
         if(selectedTemplate == null)
             return;
 
@@ -184,6 +188,21 @@ function MainPage() {
                 break;
         }
     }, [selectedTemplate])
+
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        if (/^\d*$/.test(value)) {
+            setPrecision(value);
+        }
+      };
+    
+    const handleBlur = () => {
+        if (precision === "" || parseInt(precision) < 1) {
+            setPrecision("1");
+        }
+    };
+    
 
 
   return (
@@ -255,14 +274,9 @@ function MainPage() {
                         type="number" 
                         id="percision-input"
                         value={precision}
-                        onChange={
-                            (e) => {
-                                if(parseFloat(e.currentTarget.value) >= 1) {
-                                    setPrecision(parseFloat(e.currentTarget.value));
-                                    muc.setPrecision(parseFloat(e.currentTarget.value));
-                                }
-                            }
-                        }/>
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        />
                     </div>
                     </div>
                     <div className="unit">
