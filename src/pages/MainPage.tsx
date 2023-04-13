@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Select from 'react-select';
+import { Link } from "react-router-dom";
 import { FaGithub, FaNpm, FaDonate, FaBug } from "react-icons/fa";
 import './MainPage.css'
 import MultiUnitConverter from 'multi-unit-converter'
@@ -528,6 +529,9 @@ function MainPage() {
                         </div>
                     </div>
                 </div>
+                <p id="about">
+                    <Link to="/about">About Multi Unit Converter</Link>
+                </p>
                 <p id="copyright">
                     Made by <a href="https://github.com/ItsXrgon">Xrgon</a>.
                 </p>
