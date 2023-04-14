@@ -4,11 +4,11 @@ import { FaGithub, FaNpm, FaDonate, FaBug } from "react-icons/fa";
 function AboutPage() {
   return (
     <>
-      <title> Multi Unit Converter - About </title>
-      <meta name="description" content="About page for Multi Unit Converter online tool" />
+      <title> Multi Converter - About </title>
+      <meta name="description" content="About page for Multi Converter online tool" />
       <div>
         <nav>
-          <div className="navbar-title">Multi Unit Converter</div>
+          <div className="navbar-title">Multi Converter</div>
           <div className="navbar-buttons">
             <a
               href={
@@ -48,10 +48,10 @@ function AboutPage() {
         </nav>
 
         <div className='about-main'>
-          <h1>About Multi Unit Converter</h1>
+          <h1>About Multi Converter</h1>
 
           <h2>Description:</h2>
-          <p>Multi Unit Converter is a site made to showcase the JS library "multi-unit-converter" made to converter all occurences of units in a text to specified units as all other libraries are just a one to one conversion of a number and unit but this is meant to handle cases such recipes, equations and etc that could contain multiple units that you are unfimiliar with so would like to convert them all at once instead of doing it one by one.</p>
+          <p>Multi Converter is a site made to showcase the JS library "multi-unit-converter" made to converter all occurences of units in a text to specified units as all other libraries are just a one to one conversion of a number and unit but this is meant to handle cases such recipes, equations and etc that could contain multiple units that you are unfimiliar with so would like to convert them all at once instead of doing it one by one.</p>
 
           <h2>How to use it:</h2>
           <p>Just select your prefered units from the lists on the left or select a template from the ones available, and the precision (significant figures) you want to round to, then paste the text you wish to convert in the input box and it will automatically convert the units and output them in the output box.</p>

@@ -209,7 +209,7 @@ function MainPage() {
   return (
     <>
             <nav>
-                <div className="navbar-title">Multi Unit Converter</div>
+                <div className="navbar-title">Multi Converter</div>
                 <div className="navbar-buttons">
                     <a
                         href={
