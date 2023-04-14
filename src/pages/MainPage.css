@@ -2,53 +2,30 @@
 
 :root {
     --transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: #181818;
     color-scheme: dark;
-}
-
-.dark {
-    background: #222;
-    color: white;
 }
 
 .dark .css-13cymwt-control {
     background: #222;
-    border-color: #f8f859;
+    transition: all var(--transition);
 }
 
-.dark .css-13cymwt-control:hover {
-    border-color: #c2c200;
-}
-
-.dark .unit-selection-list {
+.unit-selection-list {
     color: white;
+    margin-top: 2px;
 }
 
 .dark .css-t3ipsp-control {
     background: #222;
-}
-
-.dark .css-t3ipsp-control {
-    border-color: #f8f859;
-    box-shadow: 0 0 0 1px #f8f859;
-}
-
-.dark .css-t3ipsp-control:hover {
-    border-color: #f8f859;
 }
 
 .dark .css-1dimb5e-singleValue {
     color: white;
 }
 
-.dark .css-tr4s17-option {
-    background: #f8f859;
+.css-tr4s17-option {
     color: #222;
-}
-
-.dark textarea:hover,
-.dark .copy-text:hover,
-.dark #percision-input:hover {
-    border-color: #c2c200;
 }
 
 .dark .css-1nmdiq5-menu {
@@ -64,36 +41,19 @@
     background: #111;
 }
 
-.dark input,
-.dark textarea {
+input,
+textarea {
     color: white;
     background: #222;
 }
 
-.dark textarea:focus {
-    border-color: #f8f859;
-    box-shadow: 0 0 0 1px #f8f859;
+nav {
+    background: #2684ff;
+    color: white;
 }
 
-.dark #percision-input:focus {
-    border-color: #f8f859;
-    box-shadow: 0 0 0 1px #f8f859;
-}
 
-.dark #percision-input {
-    border-color: #f8f859;
-}
-
-.dark nav {
-    background: #f8f859;
-    color: #222;
-}
-
-.dark textarea {
-    border-color: #f8f859;
-}
-
-.dark nav a {
+nav a {
     background: white;
 }
 
@@ -143,9 +103,6 @@ textarea {
     transition: all var(--transition);
 }
 
-textarea:hover {
-    border-color: hsl(0, 0%, 70%);
-}
 
 textarea:focus {
     border-color: #2684ff;
@@ -156,10 +113,6 @@ textarea:focus {
 .unit {
     width: 400px;
     margin: 20px auto 0;
-}
-
-.unit-selection-list {
-    margin-top: 2px;
 }
 
 h1 {
@@ -173,10 +126,6 @@ h1 {
     margin-bottom: 62px;
 }
 
-.css-13cymwt-control {
-    transition: all var(--transition);
-}
-
 .output-container h1 {
     margin-top: 100px;
     margin-bottom: 40px;
@@ -186,12 +135,12 @@ h1 {
     border: 1px solid hsl(0, 0%, 80%);
     border-radius: 4px;
     background: white;
+    color: black;
     outline: none;
     width: 130px;
     font-size: 18px;
     height: 60px;
     transition: all var(--transition);
-    color: black;
 }
 
 .copy-text:hover {
@@ -262,6 +211,7 @@ nav a:hover svg {
     position: absolute;
     bottom: 20px;
     left: 50%;
+    text-align: center;
     transform: translate(-50%, 0);
 }
 
@@ -359,5 +309,48 @@ footer {
 
     .input-output-container {
         width: 98%;
+    }
+}
+
+.about-main {
+    max-width: 1200px;
+    width: 92%;
+    margin: auto;
+}
+
+.about-main h1 {
+    text-align: left;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.about-main h2 {
+    margin: 30px 0;
+}
+
+.about-main h3 {
+    margin: 40px 0 20px;
+}
+
+.about-links {
+    margin-top: 80px;
+}
+
+.about-links h2 {
+    margin-bottom: 20px;
+}
+
+.about-links ul {
+    list-style-type: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .about-main h1 {
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .about-links ul {
+        padding-left: 15px;
     }
 }
