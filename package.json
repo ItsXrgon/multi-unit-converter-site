@@ -1,7 +1,6 @@
 {
   "name": "multi-unit-converter-site",
   "private": true,
-  "homepage": "gynie.me",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

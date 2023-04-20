@@ -9,8 +9,8 @@ function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route path="/multi-unit-converter-site" element={<MainPage />} />
-          <Route path="/multi-unit-converter-site/about" element={<AboutPage />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </Router>
     </>

@@ -532,7 +532,7 @@ function MainPage() {
             </main>
             <footer>
                 <p id="copyright">
-                <Link to="/multi-unit-converter-site/about">About Multi Unit Converter</Link>
+                <Link to="/about">About Multi Unit Converter</Link>
                 <br />
                 Made by <a href="https://github.com/ItsXrgon">Xrgon</a>.
                 </p>
