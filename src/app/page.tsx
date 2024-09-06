@@ -17,7 +17,7 @@ export default function Page() {
 	const [inputText, setInputText] = useState('');
 	const [outputText, setOutputText] = useState('');
 
-	const [, copy] = useCopyToClipboard();
+	const copy = useCopyToClipboard();
 
 	const templateOptions: Option[] = useMemo(() => {
 		return [

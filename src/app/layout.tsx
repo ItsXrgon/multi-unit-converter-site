@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import React from 'react';
 
 import Navbar from '@/components/Navbar';
-import ScrollToTop from '@/hooks/useScrollToTop';
 import Footer from '@/components/Footer';
 
 import '@/styles/global.css';
@@ -32,7 +31,7 @@ export default function RootLayout({
 			// className={cairo.className}
 		>
 			<body>
-				<ScrollToTop />
+				{/* <ScrollToTop /> */}
 				<Navbar />
 				{children}
 				<Footer />
