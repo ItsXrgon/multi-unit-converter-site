@@ -1,64 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
 	--transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-	background: #181818;
-	color-scheme: dark;
-}
-
-.dark .css-13cymwt-control {
-	background: #222;
-	transition: all var(--transition);
-}
-
-.unit-selection-list {
-	color: white;
-	margin-top: 2px;
-}
-
-.dark .css-t3ipsp-control {
-	background: #222;
-}
-
-.dark .css-1dimb5e-singleValue {
-	color: white;
-}
-
-.css-tr4s17-option {
-	color: #222;
-}
-
-.dark .css-1nmdiq5-menu {
-	background: #222;
-	border: 1px solid #444;
-}
-
-.dark .css-d7l1ni-option {
-	background: #111;
-}
-
-.dark .css-d7l1ni-option:active {
-	background: #111;
-}
-
-input,
-textarea {
-	color: white;
-	background: #222;
-}
-
-nav {
-	background: #2684ff;
-	color: white;
-}
-
-nav a {
-	background: white;
 }
 
 body {
 	position: relative;
-	margin: 0;
 	font-family: 'inter', sans-serif;
 }
 
@@ -102,6 +51,10 @@ textarea {
 	transition: all var(--transition);
 }
 
+textarea:hover {
+	border-color: hsl(0, 0%, 70%);
+}
+
 textarea:focus {
 	border-color: #2684ff;
 	box-shadow: 0 0 0 1px #2684ff;
@@ -111,6 +64,10 @@ textarea:focus {
 .unit {
 	width: 400px;
 	margin: 20px auto 0;
+}
+
+.unit-selection-list {
+	margin-top: 2px;
 }
 
 h1 {
@@ -124,6 +81,10 @@ h1 {
 	margin-bottom: 62px;
 }
 
+.css-13cymwt-control {
+	transition: all var(--transition);
+}
+
 .output-container h1 {
 	margin-top: 100px;
 	margin-bottom: 40px;
@@ -133,7 +94,6 @@ h1 {
 	border: 1px solid hsl(0, 0%, 80%);
 	border-radius: 4px;
 	background: white;
-	color: black;
 	outline: none;
 	width: 130px;
 	font-size: 18px;
@@ -155,7 +115,7 @@ h1 {
 	align-items: center;
 }
 
-nav {
+.nav {
 	height: 100px;
 
 	display: flex;
@@ -177,7 +137,7 @@ nav {
 	gap: 10px;
 }
 
-nav a {
+.nav a {
 	border: 1px solid hsl(0, 0%, 80%);
 	width: 60px;
 	height: 60px;
@@ -190,83 +150,34 @@ nav a {
 	transition: all var(--transition);
 }
 
-nav svg {
+.nav svg {
 	transform: scale(2);
 	color: grey;
 	transition: all var(--transition);
 }
 
-nav a:hover {
-	border: 1px solid hsl(0, 0%, 70%);
+.nav a:hover {
+	border: 1px solid hsl(0, 4%, 10%);
 }
 
-nav a:hover svg {
+.nav a:hover svg {
 	color: rgb(73, 73, 73);
 }
 
 #copyright {
 	color: inherit;
 	position: absolute;
-	bottom: 20px;
+	bottom: 0;
 	left: 50%;
-	text-align: center;
 	transform: translate(-50%, 0);
-}
-
-footer {
-	width: 100%;
-	height: 100px;
 }
 
 #copyright a {
 	color: inherit;
 }
 
-.setting:nth-child(1) {
-	margin-bottom: 20px;
-}
-
-.setting {
-	margin-top: 0;
-	width: 100%;
-}
-
-#percision-input {
-	width: 100%;
-	height: 38px;
-	margin-top: 2px;
-
-	box-sizing: border-box;
-	border-radius: 4px;
-	border: 1px solid hsl(0, 0%, 80%);
-	padding: 5px;
-	font-family: 'inter';
-	font-size: 16px;
-	transition: all var(--transition);
-}
-
-#percision-input:hover {
-	border-color: hsl(0, 0%, 70%);
-}
-
-#percision-input:focus {
-	border-color: #2684ff;
-	box-shadow: 0 0 0 1px #2684ff;
-	outline: none;
-}
-
-.settings {
-	width: 400px;
-	margin: 0 auto;
-
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: 20px;
-}
-
 @media screen and (max-width: 1100px) {
-	.unit,
-	.settings {
+	.unit {
 		width: 100%;
 	}
 }
@@ -286,7 +197,7 @@ footer {
 		margin: 0 auto;
 	}
 
-	nav {
+	.nav {
 		justify-content: center;
 	}
 
@@ -306,48 +217,5 @@ footer {
 
 	.input-output-container {
 		width: 98%;
-	}
-}
-
-.about-main {
-	max-width: 1200px;
-	width: 92%;
-	margin: auto;
-}
-
-.about-main h1 {
-	text-align: left;
-	margin-top: 100px;
-	margin-bottom: 50px;
-}
-
-.about-main h2 {
-	margin: 30px 0;
-}
-
-.about-main h3 {
-	margin: 40px 0 20px;
-}
-
-.about-links {
-	margin-top: 80px;
-}
-
-.about-links h2 {
-	margin-bottom: 20px;
-}
-
-.about-links ul {
-	list-style-type: none;
-}
-
-@media screen and (max-width: 1200px) {
-	.about-main h1 {
-		text-align: center;
-		margin-top: 60px;
-	}
-
-	.about-links ul {
-		padding-left: 15px;
 	}
 }
