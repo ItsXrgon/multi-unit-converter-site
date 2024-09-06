@@ -2,11 +2,11 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import MultiUnitConverter from 'multi-unit-converter';
-import UnitSelect from '@/components/UnitSelect';
 import ReactSelect from 'react-select';
-import useCopyToClipboard from '@/hooks/useCopyToClipboard';
+import UnitSelect from '@/components/UnitSelect';
 
 const muc = new MultiUnitConverter();
+type CopyFn = (text: string) => Promise<boolean>; // Return success
 
 export default function Page() {
 	const [precision, setPrecision] = useState<string>('3');
@@ -17,7 +17,18 @@ export default function Page() {
 	const [inputText, setInputText] = useState('');
 	const [outputText, setOutputText] = useState('');
 
-	const copy = useCopyToClipboard();
+	const copy: CopyFn = async (text) => {
+		if (!navigator?.clipboard) {
+			return false;
+		}
+
+		try {
+			await navigator.clipboard.writeText(text);
+			return true;
+		} catch (error) {
+			return false;
+		}
+	};
 
 	const templateOptions: Option[] = useMemo(() => {
 		return [
