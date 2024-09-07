@@ -1,5 +1,6 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
-// import { Cairo } from 'next/font/google';
+import { Cairo } from 'next/font/google';
 import React from 'react';
 
 import Navbar from '@/components/Navbar';
@@ -8,10 +9,9 @@ import Footer from '@/components/Footer';
 import '@/styles/global.css';
 import '@/styles/mainpage.css';
 
-//👇 Configure our font object
-// const cairo = Cairo({
-// 	subsets: ['latin', 'arabic', 'latin-ext'],
-// });
+const cairo = Cairo({
+	subsets: ['latin', 'arabic', 'latin-ext'],
+});
 
 export const metadata: Metadata = {
 	title: 'Multi Unit Converter',
@@ -26,12 +26,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html
-			lang="en"
-			// className={cairo.className}
-		>
+		<html lang="en" className={cairo.className}>
 			<body>
 				{/* <ScrollToTop /> */}
+				<Analytics />
 				<Navbar />
 				{children}
 				<Footer />
